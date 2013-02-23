@@ -169,7 +169,7 @@ class AdminOrdersControllerCore extends AdminController
 												'other' => (int)Configuration::get('PS_OS_PAYMENT'));
 		$payment_modules = array();
 		foreach (PaymentModule::getInstalledPaymentModules() as $p_module)
-			$payment_modules[] = Module::getInstanceById((int)$p_module['id_module']);
+			$payment_modules[] = Module::getInstanceByName($p_module['name']);
 
 		$this->context->smarty->assign(array(
 			'recyclable_pack' => (int)Configuration::get('PS_RECYCLABLE_PACK'),

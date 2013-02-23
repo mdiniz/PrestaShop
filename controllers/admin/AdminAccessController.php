@@ -81,7 +81,7 @@ class AdminAccessControllerCore extends AdminController
 			');
 			foreach ($modules[$profile['id_profile']] as &$module)
 			{
-				$m = Module::getInstanceById($module['id_module']);
+				$m = Module::getInstanceByName($module['name']);
 				// the following condition handles invalid modules
 				if ($m)
 					$module['name'] = $m->displayName;

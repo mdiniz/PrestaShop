@@ -243,7 +243,7 @@ class AdminModulesPositionsControllerCore extends AdminController
 
 		$assoc_modules_id = array();
 		foreach ($modules as $module)
-			if ($tmp_instance = Module::getInstanceById((int)$module['id_module']))
+			if ($tmp_instance = Module::getInstanceByName($module['name']))
 			{
 				// We want to be able to sort modules by display name
 				$module_instances[$tmp_instance->displayName] = $tmp_instance;
@@ -353,7 +353,7 @@ class AdminModulesPositionsControllerCore extends AdminController
 
 		$instances = array();
 		foreach ($modules as $module)
-			if ($tmp_instance = Module::getInstanceById($module['id_module']))
+			if ($tmp_instance = Module::getInstanceByName($module['name']))
 				$instances[$tmp_instance->displayName] = $tmp_instance;
 		ksort($instances);
 		$modules = $instances;

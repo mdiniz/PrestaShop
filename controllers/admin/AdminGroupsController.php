@@ -341,13 +341,13 @@ class AdminGroupsControllerCore extends AdminController
 			$auth_modules = $modules;
 		$auth_modules_tmp = array();
 		foreach ($auth_modules as $key => $val)
-			$auth_modules_tmp[] = Module::getInstanceById($val['id_module']);
+			$auth_modules_tmp[] = Module::getInstanceByName($val['name']);
 
 		$auth_modules = $auth_modules_tmp;
 
 		$unauth_modules_tmp = array();
 		foreach ($unauth_modules as $key => $val)
-			if (($tmp_obj = Module::getInstanceById($val['id_module'])))
+			if (($tmp_obj = Module::getInstanceByName($val['name'])))
 				$unauth_modules_tmp[] = $tmp_obj;
 
 		$unauth_modules = $unauth_modules_tmp;
